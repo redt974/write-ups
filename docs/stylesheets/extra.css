@@ -1,0 +1,19 @@
+.print-button-wrapper {
+    text-align: right;
+    margin: 1em 1em 0 0;
+}
+
+.print-button-wrapper button {
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.print-button-wrapper button:hover {
+    background-color: #3700b3;
+}

@@ -1,0 +1,26 @@
+@media print {
+
+  nav,
+  header,
+  footer,
+  .md-header,
+  .md-footer {
+    display: none !important;
+  }
+
+  .print-button-wrapper {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: white;
+  }
+
+  pre,
+  code {
+    background: #eee !important;
+    color: #000 !important;
+  }
+}

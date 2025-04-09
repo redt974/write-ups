@@ -1,0 +1,85 @@
+site_name: redt974’s write-ups
+site_url: https://redt974.github.io/write-ups/
+theme:
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  name: material
+  custom_dir: docs/overrides
+  palette:
+    - scheme: default
+      primary: dark
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Passer en mode sombre
+    - scheme: slate
+      primary: dark
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Passer en mode clair
+  font:
+    text: Roboto
+    code: Fira Code
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - header.autohide
+    - announce.dismiss
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+  plugins:
+    - typeset
+    - search
+    - with-pdf:
+        cover: true
+        back_cover: true
+        cover_title: "redt974's write-ups"
+        cover_subtitle: "CTFs, TryHackMe, RootMe & Pentest Notes"
+        toc_title: "Table des matières"
+        toc_level: 3
+        ordered_chapter_level: 2
+        show_anchors: true
+        render_js: true
+        verbose: true
+        output_path: pdf/writeups.pdf
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.snippets
+  - attr_list
+  - pymdownx.tasklist
+  - pymdownx.magiclink
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+
+copyright: Copyright &copy; 2025 Thibaut Vandier
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/pdf.css
+extra:
+  generator: false  # Supprime "Made with Material"
+  social: 
+    - icon: fontawesome/brands/reddit
+      link: https://www.reddit.com/user/redt974/
+    - icon: fontawesome/brands/github
+      link: https://github.com/redt974
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/thibaut-vandier-558b47285/
