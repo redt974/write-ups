@@ -39,18 +39,6 @@ theme:
   plugins:
     - typeset
     - search
-    - with-pdf:
-        cover: true
-        back_cover: true
-        cover_title: "redt974's write-ups"
-        cover_subtitle: "CTFs, TryHackMe, RootMe & Pentest Notes"
-        toc_title: "Table des matières"
-        toc_level: 3
-        ordered_chapter_level: 2
-        show_anchors: true
-        render_js: true
-        verbose: true
-        output_path: pdf/writeups.pdf
 
 markdown_extensions:
   - pymdownx.superfences
