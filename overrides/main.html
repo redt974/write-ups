@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{ super() }}
+    <div class="print-button-wrapper">
+        <button onclick="window.print()" title="Imprimer cette page">🖨️ Imprimer</button>
+    </div>
+{% endblock %}
