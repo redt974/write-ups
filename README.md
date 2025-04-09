@@ -65,7 +65,3 @@ Accède ensuite à : [http://localhost:8000](http://localhost:8000)
 
 **Thibaut Vandier**  
 Passionné de cybersécurité, CTF et reverse engineering.
-
-```
-
----
