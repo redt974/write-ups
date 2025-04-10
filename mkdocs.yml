@@ -39,6 +39,8 @@ theme:
   plugins:
     - typeset
     - search
+    - toc:
+      toc_depth: 3
 
 markdown_extensions:
   - pymdownx.superfences
