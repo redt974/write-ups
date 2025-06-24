@@ -2,74 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://redt974.github.io/write-ups/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/Pentesting/Attaque%20d%27une%20Machine/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/Pentesting/Pentesting/</loc>
-         <lastmod>2025-06-16</lastmod>
-    </url>
-    <url>
-         <loc>https://redt974.github.io/write-ups/Pentesting/OWASP/OWASP%20Top%2010%20-%20Cheat%20Sheet%20%282017%29/</loc>
-         <lastmod>2025-06-16</lastmod>
-    </url>
-    <url>
-         <loc>https://redt974.github.io/write-ups/Pentesting/OWASP/OWASP%20Top%2010%20-%20Cheat%20Sheet%20%282021%29/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/Pentesting/Outils/Bind%20Shell/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/Pentesting/Outils/Nmap/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/Pentesting/Outils/Reverse%20Shell/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/Pentesting/Outils/SqlMAP/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Pentesting/Websites/CVE/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Pentesting/Websites/Clusif/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Pentesting/Websites/Kaspersky/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Pentesting/Websites/MITRE%20ATT%26CK/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Pentesting/Websites/NIST/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Pentesting/Websites/Shodan/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Pentesting/Websites/OWASP/OWASP%20Top%2010%20-%20Cheat%20Sheet%20%282017%29/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Pentesting/Websites/OWASP/OWASP%20Top%2010%20-%20Cheat%20Sheet%20%282021%29/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Pentesting/Websites/OWASP/OWASP/</loc>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/RootMe/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/RootMe/Cryptanalyse/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/RootMe/Cryptanalyse/Hash%20-%20DCC2/Hash%20-%20DCC2/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/RootMe/Web%20Serveur/Web%20Serveur/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/R%C3%A9seaux/Calcul%20de%20masque/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/R%C3%A9seaux/Commandes%20Cisco%20Packet%20Tracer/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Syst%C3%A8mes/Broadcom%20VMware%20Softwares/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Syst%C3%A8mes/Fichier%20.ISO/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Syst%C3%A8mes/Hyper-V/Disable%20Hyper-V%20Windows%2011/</loc>
+         <lastmod>2025-06-24</lastmod>
+    </url>
+    <url>
+         <loc>https://redt974.github.io/write-ups/Syst%C3%A8mes/Hyper-V/Hyper%20V/</loc>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/TryHackMe/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/TryHackMe/Boiler%20CTF/Boiler%20CTF%20-%20TryHackMe/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/TryHackMe/Injection%20SQL%20Lab/Injection%20SQL%20-%20TryHackMe/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/TryHackMe/Publisher%20CTF/Publisher%20CTF%20-%20TryHackMe/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
     <url>
          <loc>https://redt974.github.io/write-ups/TryHackMe/Rabbit%20store/Rabbit%20store%20-%20TryHackMe/</loc>
-         <lastmod>2025-06-16</lastmod>
+         <lastmod>2025-06-24</lastmod>
     </url>
 </urlset>
