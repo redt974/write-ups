@@ -15,9 +15,11 @@ Ce site a pour but de :
 
 | Catégorie              | Description |
 |------------------------|-------------|
-| [TryHackMe](TryHackMe/index.md) | TryHackMe est une plateforme en ligne gratuite pour apprendre la cybersécurité, à l’aide d’exercices pratiques et de laboratoires ! |
-| [Root me](RootMe/index.md) | Root Me est une plateforme permettant d'améliorer ses connaissances dans le domaine de la sécurité informatique et du hacking à travers des challenges. |
-
+| [Pentesting](Pentesting/index.md) | Introduction au **pentest** avec des techniques, outils et environnements de test pour simuler des **attaques réelles**. |
+| [Root me](Rootme/index.md) | **[Root Me](https://www.root-me.org/)** est une plateforme permettant d'améliorer ses connaissances dans le domaine de la **sécurité informatique** et du **hacking** à travers des **challenges**. |
+| [Réseaux](Réseaux/index.md) | Concepts **fondamentaux des réseaux** : **adresse IP**, **masque**, **routage**, **commandes Cisco**, et simulations Packet Tracer. |
+| [Systèmes](Systèmes/index.md) | Gestion des systèmes d’exploitation, **Virtualisation** de VMs **Windows**, **Linux** et **macOS**. |
+| [TryHackMe](TryHackMe/index.md) | **[TryHackMe](https://tryhackme.com/)** est une plateforme en ligne gratuite pour **apprendre** la **cybersécurité**, à l’aide d’exercices pratiques et de laboratoires ! |
 
 ---
 
