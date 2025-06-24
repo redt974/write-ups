@@ -13,9 +13,19 @@ Bienvenue dans mon dépôt GitHub regroupant mes write-ups de CTFs, Root-Me, Try
 
 ## 🚀 Déploiement
 
+### Installation :
+
+```bash
+python3 -m venv ~/venvs/mkdocs-env
+source ~/venvs/mkdocs-env/bin/activate
+pip install mkdocs
+pip install mkdocs-material
+```
+
 ### 🔧 Pour mettre à jour le site GitHub Pages :
 
 ```bash
+source ~/venvs/mkdocs-env/bin/activate
 mkdocs gh-deploy
 ```
 
@@ -38,6 +48,7 @@ git push
 Pour travailler localement et prévisualiser ton site :
 
 ```bash
+source ~/venvs/mkdocs-env/bin/activate
 mkdocs serve
 ```
 
